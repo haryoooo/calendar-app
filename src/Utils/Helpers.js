@@ -15,7 +15,7 @@ export const dateStyling = (idx) => {
   };
 };
 
-export const eventStyling = (value, hex) => {
+export const eventStyling = (value, hex, eventsLength) => {
   switch (value) {
     case 0:
       return {
@@ -29,7 +29,9 @@ export const eventStyling = (value, hex) => {
     case 1:
       return {
         position: "relative",
+        height: eventsLength === 1 ? '170px' : eventsLength === 2 ? '85px' : null,
         zIndex: 1,
+        padding: "5px",
         display: "flex",
         justifyContent: "space-between",
         backgroundColor: hex,
@@ -41,10 +43,15 @@ export const eventStyling = (value, hex) => {
   }
 };
 
-export const calendarBoxStyling = (idx, innerWidth) => {
+export const calendarBoxStyling = (idx, innerWidth, hex) => {
   if (idx > 5 && idx < 37) {
-    return { cursor: "pointer", border: "1px solid black", width: innerWidth < 1500 ? "10rem" : "12rem" };
+    return {
+      cursor: "pointer",
+      border: "1px solid black",
+      width: innerWidth < 1500 ? "10rem" : "12rem",
+    };
   }
+
   return {
     borderLeft: "1px solid #D9DADA",
     borderTop: "1px solid black",

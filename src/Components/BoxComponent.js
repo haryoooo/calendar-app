@@ -7,7 +7,6 @@ import IconPlus from "../Assets/icon-plus.png";
 import IconUpdate from "../Assets/icons-update.png";
 import IconDelete from "../Assets/icons-remove.png";
 import { db } from "../Utils/firebase";
-import BeatLoader from "react-spinners/BeatLoader";
 import { randomizeBackground } from "../Utils/RandomizeBackground";
 import { ref, onValue } from "firebase/database";
 import { CalendarContext } from "../Context/CalendarContext";
@@ -194,7 +193,7 @@ export default function BoxComponent({ date, events, uuid, idx, day }) {
                 style={
                   events?.length === 0
                     ? eventStyling(0)
-                    : eventStyling(1, val.bgColor)
+                    : eventStyling(1, val.bgColor, events?.length)
                 }
               >
                 <div className="calendarBox__event">
