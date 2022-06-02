@@ -57,8 +57,6 @@ export default function BoxComponent({ date, events, uuid, idx, day }) {
   };
 
   const handleUpdate = (indexs, isUpdates) => {
-    console.log(indexs);
-
     setIndex(indexs);
     detailEvent(indexs);
     if (isUpdates !== undefined) {
@@ -190,6 +188,7 @@ export default function BoxComponent({ date, events, uuid, idx, day }) {
           ) : (
             events?.map((val, i) => (
               <div
+                onChange={console.log(window.innerHeight)}
                 style={
                   events?.length === 0
                     ? eventStyling(0)

@@ -29,7 +29,7 @@ export const eventStyling = (value, hex, eventsLength) => {
     case 1:
       return {
         position: "relative",
-        height: eventsLength === 1 ? '170px' : eventsLength === 2 ? '85px' : null,
+        // height: eventsLength === 1 ? '170px' : eventsLength === 2 ? '85px' : null,
         zIndex: 1,
         padding: "5px",
         display: "flex",
@@ -47,8 +47,10 @@ export const calendarBoxStyling = (idx, innerWidth, hex) => {
   if (idx > 5 && idx < 37) {
     return {
       cursor: "pointer",
+      overflow: 'hidden',
       border: "1px solid black",
       width: innerWidth < 1500 ? "10rem" : "12rem",
+      backgroundColor: hex,
     };
   }
 

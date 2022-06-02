@@ -113,16 +113,16 @@
     display: flex;
     justify-content: flex-end;
     
-    >div {
-        cursor: pointer;
-        width: fit-content;
-        border: 1px solid transparent;
-        background-color: gray;
-        border-radius: 8px;
-        color: white;
-        font-size: 13px;
-        font-weight: 500;
-        padding: 10px;
+        >div {
+            cursor: pointer;
+            width: fit-content;
+            border: 1px solid transparent;
+            background-color: gray;
+            border-radius: 8px;
+            color: white;
+            font-size: 13px;
+            font-weight: 500;
+            padding: 10px;
+        }
     }
-}
 }
