@@ -1,0 +1,10 @@
+.calendarWrapper {
+    margin: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 50px;
+
+    .isLoading {
+        margin: 20rem auto;
+    }
+}

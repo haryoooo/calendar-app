@@ -1,0 +1,121 @@
+.calendarBox {
+    div:nth-child(2){
+        text-align: right;
+    }
+
+    &__day {
+        position: relative;
+        font-weight: bold;
+        text-transform: capitalize;
+    }
+
+    &__days {
+        position: absolute;
+        font-weight: bold;
+        text-transform: capitalize;
+    }
+
+    &__date {
+        position: relative;
+        left: 172px;
+    }
+
+    &__iconContainer {
+        position: relative;
+        text-align: center;
+
+        .IconPlus {
+            margin-top: 30px;
+             
+            img {
+                border: 1px dotted black;
+             }
+
+            img:active {
+                background-color: rgb(0, 0, 0, 0.3);
+            }
+        }
+    }
+
+    &__event{
+        display: inline-block;
+        word-break: break-all;
+        word-wrap: break-word;
+        height: max-content;
+        font-weight: bold;
+        z-index: 3;
+
+        div {
+            word-break: break-all;
+        }
+
+        &__remove{
+            display: flex;
+            flex-direction: column;
+
+            img{
+                border: 1px solid black;
+                width: 40%;
+            }
+
+            img:active{
+                background-color: rgb(0, 0, 0, 0.3);
+            }
+         }
+    }
+
+    &__days {
+        position: absolute;
+        margin-left: 50px;
+        top: 1.7rem;
+    }
+
+}
+
+.modal__content {
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        cursor: pointer;
+    }
+
+    &__input {
+        font-size: 14px;
+        font-weight: 400;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+
+        header {
+            margin-bottom: 10px;
+        }
+
+        input {
+            min-width: 20rem;
+            border: 1px solid #CBD1D0;
+            border-radius: 8px;
+            background-color: #f2f3f3;
+            padding: 8px;
+        }
+
+        input:active {
+            border-color: none;
+        }
+}
+
+&__button {
+    display: flex;
+    justify-content: flex-end;
+    
+    >div {
+        cursor: pointer;
+        width: fit-content;
+        border: 1px solid transparent;
+        background-color: gray;
+        border-radius: 8px;
+        color: white;
+        font-size: 13px;
+        font-weight: 500;
+        padding: 10px;
+    }
+}
+}
