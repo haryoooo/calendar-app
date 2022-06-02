@@ -44,11 +44,6 @@ export default function BoxComponent({ date, events, uuid, idx, day }) {
   });
 
   const calendarContext = useContext(CalendarContext);
-  // const modalIsOpen = calendarContext.modalIsOpen;
-  // const setIsOpen = calendarContext.setIsOpen;
-  // const closeModal = calendarContext.closeModal;
-  // const openModal = calendarContext.openModal;
-  const isProcessing = calendarContext.isProcessing;
 
   const createEvent = calendarContext.createEvent;
   const updateEvent = calendarContext.updateEvent;
@@ -166,13 +161,7 @@ export default function BoxComponent({ date, events, uuid, idx, day }) {
                     : createEvent(uuid, date, event, events)
                 }
               >
-                {isProcessing ? (
-                  <span>Loading....</span> // <BeatLoader size={7} color="#ffffff" />
-                ) : isUpdate === true ? (
-                  "Update Event"
-                ) : (
-                  "Create Event"
-                )}
+                {isUpdate === true ? "Update Event" : "Create Event"}
               </div>
             </div>
           </div>
@@ -181,13 +170,12 @@ export default function BoxComponent({ date, events, uuid, idx, day }) {
     );
   };
 
-  useEffect(() => {
-  }, [hex, index, window.innerWidth]);
+  useEffect(() => {}, [hex, index]);
 
   return (
     <Fragment>
       <div style={calendarBoxStyling(idx, window.innerWidth)}>
-        {window.innerWidth > 1500 ? (
+        {window.innerWidth > 1200 && window.innerWidth < 1700 ? (
           <div className="calendarBox__days">{idx < 7 ? day : null}</div>
         ) : null}
         <div className="calendarBox__date">
