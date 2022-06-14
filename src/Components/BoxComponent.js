@@ -43,7 +43,6 @@ export default function BoxComponent({ date, events, uuid, idx, day }) {
   });
 
   const calendarContext = useContext(CalendarContext);
-
   const createEvent = calendarContext.createEvent;
   const updateEvent = calendarContext.updateEvent;
   const removeEvent = calendarContext.removeEvent;
@@ -91,20 +90,24 @@ export default function BoxComponent({ date, events, uuid, idx, day }) {
         invitees: data?.invitees,
         name: data?.name,
         time: data?.time,
-        bgColor:
-          data?.bgColor !== undefined || data?.bgColor !== null
-            ? data?.bgColor
-            : hex,
+        bgColor: data?.bgColor,
       }));
     });
   };
 
   const createEvents = (data, title) => {
-    setHex(randomizeBackground);
+    if (isUpdate !== true) {
+      setHex(randomizeBackground);
+      setEvent((prev) => ({
+        ...prev,
+        [title]: data,
+        bgColor: hex,
+      }));
+    }
+
     setEvent((prev) => ({
       ...prev,
       [title]: data,
-      bgColor: hex,
     }));
   };
 
@@ -188,7 +191,6 @@ export default function BoxComponent({ date, events, uuid, idx, day }) {
           ) : (
             events?.map((val, i) => (
               <div
-                onChange={console.log(window.innerHeight)}
                 style={
                   events?.length === 0
                     ? eventStyling(0)

@@ -3,8 +3,10 @@
     display: flex;
     flex-wrap: wrap;
     padding: 50px;
+}
 
-    .isLoading {
-        margin: 20rem auto;
-    }
+.isLoading {
+    display: flex;
+    justify-content: center;
+    margin: 20rem auto;
 }
