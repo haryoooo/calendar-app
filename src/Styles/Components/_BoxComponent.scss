@@ -4,7 +4,8 @@
     }
 
     &__days {
-        position: absolute;
+        position: relative;
+        margin-top: 70px;
         font-weight: bold;
         text-transform: capitalize;
     }
@@ -40,7 +41,6 @@
         word-break: break-all;
         word-wrap: break-word;
         font-weight: bold;
-        z-index: 3;
 
         &__remove{
             display: flex;
@@ -62,7 +62,6 @@
             word-wrap: break-word;
             height: max-content;
             font-weight: bold;
-            z-index: 3;
 
             div {
                 word-break: break-all;

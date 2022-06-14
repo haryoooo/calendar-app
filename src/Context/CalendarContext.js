@@ -13,9 +13,9 @@ const CalendarContextProvider = ({ children }) => {
   const getCalendar = () => {
     try {
       setisLoading(true);
-      onValue(ref(db), (snapshot) => {
+      onValue(ref(db), async (snapshot) => {
         setisLoading(false);
-        const data = snapshot.val();
+        const data = await snapshot.val();
 
         let convertData = Object.entries(data.calendar).map(([key, value]) => ({
           uuid: key,
@@ -74,6 +74,7 @@ const CalendarContextProvider = ({ children }) => {
         time: value.time,
         bgColor: value.bgColor,
       };
+
       const data = {
         date: date,
         events: [payload],
@@ -100,8 +101,8 @@ const CalendarContextProvider = ({ children }) => {
   };
 
   const detailEvent = (uuid, index) => {
-    onValue(ref(db, `/calendar/${uuid}/events/${index}`), (snapshot) => {
-      const data = snapshot.val();
+    onValue(ref(db, `/calendar/${uuid}/events/${index}`), async (snapshot) => {
+      const data = await snapshot.val();
 
       setEvent((prev) => ({
         ...prev,
@@ -135,7 +136,6 @@ const CalendarContextProvider = ({ children }) => {
   };
 
   const updateEvent = (uuid, index, events) => {
-    console.log(events, index);
     try {
       if (events?.invitees === "") {
         Swal.fire({
@@ -180,7 +180,6 @@ const CalendarContextProvider = ({ children }) => {
         event,
         setEvent,
         isLoading,
-        setisLoading,
         getCalendar,
         detailEvent,
         createEvent,
